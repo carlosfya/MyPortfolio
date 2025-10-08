@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDBM-FULL-PROJECT: Autonomous Vehicle Control System - Carlos Fernández-Yáñez Arce</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <header id="header">
+        <nav id="navbar">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="project-detail" class="container">
+            <h2>SDBM-FULL-PROJECT: Autonomous Vehicle Control System</h2>
+            <p class="project-description">This project implements a fully functional autonomous vehicle control system using the STM32L152RETX microcontroller. The system provides both manual remote control via Bluetooth Low Energy (BLE) and automatic operation with bidirectional obstacle detection. It integrates motor control, sensor readings, and communication protocols to achieve robust vehicle navigation.</p>
+            
+            <img src="project2-image.jpg" alt="Autonomous Vehicle Control System" class="project-image">
+            
+            <h3>Key Features</h3>
+            <ul class="project-list">
+                <li><strong>Remote Control via BLE:</strong> Control the vehicle wirelessly using Bluetooth commands</li>
+                <li><strong>Automatic Mode:</strong> Intelligent obstacle detection and avoidance using ultrasonic sensors</li>
+                <li><strong>Manual Mode:</strong> Direct control for start, stop, direction changes</li>
+                <li><strong>Bidirectional Obstacle Detection:</strong> Sensors detect obstacles in front and potentially rear</li>
+                <li><strong>Motor Control:</strong> Precise DC motor control with speed adjustment</li>
+                <li><strong>Sensor Integration:</strong> Ultrasonic sensors for distance measurement, potentiometer for speed control</li>
+                <li><strong>Audio Feedback:</strong> Buzzer alerts for obstacle warnings</li>
+                <li><strong>Interrupt-Driven Architecture:</strong> Efficient handling of ADC, UART, timer, and external interrupts</li>
+            </ul>
+
+            <h3>Hardware Requirements</h3>
+            <ul class="project-list">
+                <li>STM32L152RETX microcontroller</li>
+                <li>DC motors with H-bridge driver</li>
+                <li>Ultrasonic sensors (HC-SR04 or similar) for obstacle detection</li>
+                <li>Potentiometer for speed adjustment</li>
+                <li>Buzzer for audio alerts</li>
+                <li>BLE module for wireless communication</li>
+            </ul>
+
+            <h3>Software Architecture</h3>
+            <p>The project uses an interrupt-driven architecture with key components like ADC, UART, Timer, and EXTI interrupts for efficient processing.</p>
+
+            <h3>Operation Modes</h3>
+            <ul class="project-list">
+                <li><strong>Manual Mode:</strong> Control via BLE commands for start/stop, direction, and speed</li>
+                <li><strong>Automatic Mode:</strong> Autonomous obstacle detection, avoidance, and audio alerts</li>
+            </ul>
+
+            <h3>Key Learnings</h3>
+            <ul class="project-list">
+                <li>Voltage management and component isolation</li>
+                <li>Buzzer operation (active low)</li>
+                <li>Battery efficiency and power consumption</li>
+                <li>Turning precision and calibration</li>
+            </ul>
+
+            <h3>Technologies Used</h3>
+            <div class="project-tech">
+                <span>STM32L152RETX</span>
+                <span>BLE</span>
+                <span>Ultrasonic Sensors</span>
+                <span>DC Motors</span>
+                <span>C/C++</span>
+                <span>Embedded Systems</span>
+            </div>
+
+            
+            <h3>Link to the Repository</h3>
+            <a href="https://github.com/carlosfya/ObstacleDetectionRobot" target="_blank" class="button"><i class="fab fa-github"></i> Ver en GitHub</a>
+
+            <a href="index.html#projects" class="button">Volver a Proyectos</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Carlos Fernández-Yáñez Arce. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

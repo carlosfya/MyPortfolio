@@ -1,0 +1,71 @@
+{
+  "personal": {
+    "name": "Carlos Fernández-Yáñez Arce",
+    "title": "Telecommunication Technologies & Data Science Engineering Student"
+  },
+  "contact": {
+    "email": "carlosfyam@gmail.com",
+    "phone": "+34 693 50 05 43",
+    "linkedin": "https://www.linkedin.com/in/carlos-fern%C3%A1ndez-y%C3%A1%C3%B1ez-arce-0335102b1/",
+    "github": "https://github.com/carlosfyam"
+  },
+  "sections": {
+    "about": "About Me",
+    "education": "Education",
+    "projects": "Projects",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "about": {
+    "description": "Fervent advocate of technological innovation, constantly driven by the pursuit of knowledge and the opportunity to learn from the world around me. My passion for technology spans across various domains, with a particular focus on <span class='highlight-text'>artificial intelligence (AI)</span> and <span class='highlight-text'>telecommunications devices</span>. I am committed to expand my skill set and contribute to cutting-edge advancements in the field."
+  },
+  "education": [
+    {
+      "institution": "Northeastern University, Boston",
+      "degree": "Exchange Year Program",
+      "period": "2023 – 2024",
+      "details": "Achieved Dean’s List honors for academic excellence."
+    },
+    {
+      "institution": "University Charles III of Madrid",
+      "degree": "Dual Bachelor's Degree in Telecommunication Technologies & Data Science Engineering",
+      "period": "2021 - 2026",
+      "details": ""
+    },
+    {
+      "institution": "Santa María del Pilar High School",
+      "degree": "Primary School & High School",
+      "period": "2006 – 2021",
+      "details": "Graduated with honors registration."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Super Mario Bros Clone - Python Game Project",
+      "description": "This is a faithful recreation of the classic Super Mario Bros game, built entirely in Python using the Pyxel retro game engine. The project demonstrates advanced object-oriented programming concepts, game physics, collision detection, and sprite-based graphics rendering.",
+      "technologies": ["Python", "Pyxel", "Object-Oriented Programming", "Game Physics", "Collision Detection"],
+      "image": "project1-image.jpg",
+      "link": "project1.html"
+    },
+    {
+      "title": "SDBM-FULL-PROJECT: Autonomous Vehicle Control System",
+      "description": "This project implements a fully functional autonomous vehicle control system using the STM32L152RETX microcontroller. It provides both manual remote control via Bluetooth Low Energy (BLE) and automatic operation with bidirectional obstacle detection, integrating motor control, sensor readings, and communication protocols.",
+      "technologies": ["STM32L152RETX", "BLE", "Ultrasonic Sensors", "DC Motors", "C/C++", "Embedded Systems"],
+      "image": "project2-image.jpg",
+      "link": "project2.html"
+    }
+  ],
+  "experience": [
+    {
+      "company": "elLaurel Catering & Grupo Goa",
+      "role": "Event Waiter & Team Coordinator",
+      "period": "May 2024 - Sep 2024",
+      "description": "Worked at high-profile weddings, events, and festivals. Gained valuable experience in teamwork and leadership by coordinating with colleagues to ensure seamless and high-quality service in fast-paced environments."
+    }
+  ],
+  "skills": {
+    "technical": ["Coding", "Research & Data Analysis", "Excel", "Project Management", "Artificial Intelligence"],
+    "soft": ["Teamwork", "Leadership", "Communication", "Problem-Solving", "Adaptability", "Organizational Skills"]
+  }
+}
