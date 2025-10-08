@@ -1,0 +1,69 @@
+{
+  "personal": {
+    "name": "Carlos Fernández-Yáñez Arce",
+    "title": "Telecommunication Technologies & Data Science Engineering Student"
+  },
+  "contact": {
+    "email": "carlosfyam@gmail.com",
+    "phone": "+34 693 50 05 43",
+    "linkedin": "https://www.linkedin.com/in/carlos-fern%C3%A1ndez-y%C3%A1%C3%B1ez-arce-0335102b1/",
+    "github": "https://github.com/carlosfyam"
+  },
+  "sections": {
+    "about": "About Me",
+    "education": "Education",
+    "projects": "Projects",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "about": {
+    "description": "Fervent advocate of technological innovation, constantly driven by the pursuit of knowledge and the opportunity to learn from the world around me. My passion for technology spans across various domains, with a particular focus on <span class='highlight-text'>artificial intelligence (AI)</span> and <span class='highlight-text'>telecommunications devices</span>. I am committed to expand my skill set and contribute to cutting-edge advancements in the field."
+},
+  "education": [
+    {
+      "institution": "Northeastern University, Boston",
+      "degree": "Exchange Year Program",
+      "period": "2023 – 2024",
+      "details": "Achieved Dean’s List honors for academic excellence."
+    },
+    {
+      "institution": "University Charles III of Madrid",
+      "degree": "Dual Bachelor's Degree in Telecommunication Technologies & Data Science Engineering",
+      "period": "2021 - 2026",
+      "details": ""
+    },
+    {
+      "institution": "Santa María del Pilar High School",
+      "degree": "Primary School & High School",
+      "period": "2006 – 2021",
+      "details": "Graduated with honors registration."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Project Example 1: AI Chatbot",
+      "description": "This is a placeholder for your project. Describe the project's goal, the technologies you used (e.g., Python, TensorFlow), and your specific role. Explain the outcome and what you learned.",
+      "technologies": ["Python", "Natural Language Processing", "TensorFlow"],
+      "link": "#"
+    },
+    {
+      "title": "Project Example 2: Data Visualization Dashboard",
+      "description": "This is another placeholder. Remember to provide a link to the project's GitHub repository or a live demo if available. Good projects show your skills in action.",
+      "technologies": ["JavaScript", "React", "D3.js", "CSS"],
+      "link": "#"
+    }
+  ],
+  "experience": [
+    {
+      "company": "elLaurel Catering & Grupo Goa",
+      "role": "Event Waiter & Team Coordinator",
+      "period": "May 2024 - Sep 2024",
+      "description": "Worked at high-profile weddings, events, and festivals. Gained valuable experience in teamwork and leadership by coordinating with colleagues to ensure seamless and high-quality service in fast-paced environments."
+    }
+  ],
+  "skills": {
+    "technical": ["Coding", "Research & Data Analysis", "Excel", "Project Management", "Artificial Intelligence"],
+    "soft": ["Teamwork", "Leadership", "Communication", "Problem-Solving", "Adaptability", "Organizational Skills"]
+  }
+}
