@@ -431,7 +431,7 @@ a:hover {
         padding: 40px 10px;
     }
     .home-content {
-        padding: 0 10px;
+        padding: 0;
     }
     .profile-pic {
         width: 250px;
@@ -444,7 +444,7 @@ a:hover {
         gap: 15px;
     }
     #social-icons a {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
     #navbar a {
         margin: 0 10px;
