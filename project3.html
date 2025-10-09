@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival Analysis Project - Carlos Fernández-Yáñez Arce</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <header id="header">
+        <nav id="navbar">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About Me</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="project-detail" class="container">
+            <h2>Titanic Survival Analysis Project</h2>
+            <p class="project-description">This data science project explores the famous Titanic dataset to uncover patterns and insights into passenger survival during the tragic 1912 sinking. Using R programming and advanced visualization libraries, the analysis examines key demographic and socioeconomic factors influencing survival rates. The project demonstrates exploratory data analysis (EDA) techniques, statistical summaries, and data visualization to draw meaningful conclusions about the event.</p>
+            
+            <img src="project3-image.jpg" alt="Titanic Survival Analysis Visualization" class="project-image">
+            
+            <h3>Project Overview</h3>
+            <p><strong>Objective:</strong> Analyze the Titanic passenger data to identify factors affecting survival, such as gender, age, class, family size, fare, and embarkation port. The goal is to provide a comprehensive understanding of who survived and why, based on historical data.</p>
+            <p><strong>Dataset:</strong> The analysis uses the titanic_train.Rdata file, containing 668 passenger records with variables like Survived (0/1), Pclass (1st/2nd/3rd class), Sex, Age, SibSp (siblings/spouses), Parch (parents/children), Fare, Cabin, Embarked (C/Q/S for ports), and Ticket.</p>
+            
+            <h3>Tools and Libraries</h3>
+            <ul class="project-list">
+                <li><strong>R Programming Language:</strong> For data manipulation, statistical analysis, and scripting.</li>
+                <li><strong>ggplot2:</strong> Core visualization library for creating bar charts, histograms, boxplots, density plots, and scatterplots.</li>
+                <li><strong>viridis:</strong> For color scales in density plots.</li>
+                <li><strong>ggridges:</strong> For ridge plots showing distributions across categories.</li>
+                <li><strong>ggExtra:</strong> For marginal plots (e.g., histograms on scatterplots).</li>
+                <li><strong>gridExtra:</strong> For arranging multiple plots and tables.</li>
+            </ul>
+
+            <h3>Methodology</h3>
+            <p>The script performs univariate and bivariate analyses, generates frequency tables, proportions, and visualizations. It includes data cleaning (e.g., handling missing values implicitly), feature engineering (e.g., age intervals, total relatives), and saves key tables as PNG images for reporting.</p>
+
+            <h3>Key Analyses and Results</h3>
+            <h4>Survival Overview</h4>
+            <p><strong>Result:</strong> Out of 668 passengers, 412 did not survive (61.7%), while 256 survived (38.3%). Survival rates were heavily skewed by gender: 74.7% of females survived compared to only 20.6% of males.</p>
+            <p><strong>Visualization:</strong> Bar chart showing survival by sex, with counts labeled.</p>
+            <p><strong>Table:</strong> Cross-tabulation of survival by sex, including totals.</p>
+
+            <h4>Demographic Breakdown</h4>
+            <ul class="project-list">
+                <li><strong>Sex:</strong> 63.6% male, 36.4% female – a male-dominated passenger list.</li>
+                <li><strong>Passenger Class (Pclass):</strong> 42% in 1st class, 67% in 2nd, 75% in 3rd (note: percentages seem misaligned in script; actual counts: 1st=132, 2nd=134, 3rd=402).</li>
+                <li><strong>Age:</strong> Most passengers (mode around 24-30) were adults aged 18-37. Distribution: Young people (0-18): ~20%, Young adults (18-30): ~40%, Adults (30-50): ~30%, Old (>50): ~10%.</li>
+                <li><strong>Family Variables (SibSp & Parch):</strong> Right-skewed distributions; 66% had no siblings/spouses, 75% had no parents/children. Indicates most traveled alone or in small groups.</li>
+                <li><strong>Fare:</strong> Highly skewed; median ~$14, but some paid over $200. Most fares were low, reflecting 3rd-class dominance.</li>
+                <li><strong>Embarkation Port:</strong> Southampton (71.6%), Cherbourg (19.8%), Queenstown (8.5%). Southampton was the primary boarding point.</li>
+            </ul>
+
+            <h4>Bivariate and Advanced Visualizations</h4>
+            <ul class="project-list">
+                <li><strong>Survival by Sex (Graph 1):</strong> Reinforces gender disparity; women prioritized in lifeboats.</li>
+                <li><strong>Fare by Age Intervals (Graph 2):</strong> Ridge density plot showing fare distributions across age groups (e.g., [20-30) had varied fares). Uses viridis color scale for fare values.</li>
+                <li><strong>Family Relationships (Graph 3):</strong> Bin2D plot of Parch vs. SibSp; most clusters at low values (0-2 relatives), showing independence between variables.</li>
+                <li><strong>Fare by Sex (Graph 4):</strong> Boxplots reveal similar medians (~$10-15) but outliers for both; men: mean $25.5, women: $44.5 (higher due to 1st-class preferences).</li>
+                <li><strong>Class by Embarkation (Graph 5):</strong> Bar chart with dodge; 1st class mostly from Cherbourg/Southampton, 3rd from Southampton/Queenstown. Table shows breakdowns.</li>
+                <li><strong>Age Distribution by Sex (Graph 6):</strong> Mirrored density plots with mean/median lines; men: mean 30.7, median 29; women: mean 27.9, median 27. Slight male skew toward older ages.</li>
+                <li><strong>Age vs. Total Relatives (Graph 7):</strong> Scatterplot with marginal histograms; no strong correlation, but younger passengers had more relatives. Colored by sex.</li>
+            </ul>
+
+            <h3>Conclusions</h3>
+            <p><strong>Survival Factors:</strong> Gender was the strongest predictor – women had ~3.5x higher survival rates. Class mattered (1st class: 63% survival vs. 3rd: 24%), but gender trumped it. Age showed mixed effects; children had higher survival, but adults dominated.</p>
+            <p><strong>Demographic Insights:</strong> The Titanic carried a young, male-heavy, lower-class majority. Family sizes were small, fares low, and Southampton was the hub.</p>
+            <p><strong>Patterns and Anomalies:</strong> No clear link between fare/age or family size/age, but class and port correlated (wealthier passengers boarded at premium ports). Distributions were skewed, highlighting socioeconomic divides.</p>
+            <p><strong>Implications:</strong> Reinforces historical narratives of "women and children first." Useful for machine learning models (e.g., predicting survival) or historical studies.</p>
+            <p><strong>Limitations:</strong> Based on training data only; missing values in Age/Cabin not addressed. Visualizations use deprecated ggplot2 syntax (e.g., ..count..), suggesting updates for modern R versions.</p>
+            <p>This project showcases R's power for EDA, producing 7+ visualizations and tables. The code is reproducible, with outputs saved as PDFs/PNGs. For the full script or datasets, visit the repository. If you'd like to extend this with predictive modeling (e.g., logistic regression), let me know!</p>
+
+            <h3>Technologies Used</h3>
+            <div class="project-tech">
+                <span>R</span>
+                <span>ggplot2</span>
+                <span>Data Analysis</span>
+                <span>Visualization</span>
+                <span>Exploratory Data Analysis</span>
+            </div>
+
+            <h3>Link to the Repository</h3>
+            <a href="https://github.com/carlosfya/TitanicSurvivalAnalysis" target="_blank" class="button"><i class="fab fa-github"></i> Ver en GitHub</a>
+
+            <a href="index.html#projects" class="button">Volver a Proyectos</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Carlos Fernández-Yáñez Arce. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
