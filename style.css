@@ -2,7 +2,7 @@
 :root {
     --bg-color: #f4f4f4;
     --text-color: #2c3e50;
-    --primary-color: #8c7851; /* Muted Gold */
+    --primary-color: #8c7851; 
     --card-bg-color: #ffffff;
     --border-color: #e0e0e0;
     --header-font: 'Lora', serif;
@@ -120,20 +120,20 @@ a:hover {
 
 .home-content {
     max-width: 800px;
-    display: flex; /* Para centrar la imagen y el texto verticalmente */
-    flex-direction: column; /* Para apilar los elementos verticalmente */
-    align-items: center; /* Para centrar horizontalmente */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .profile-pic {
-    width: 300px; /* Tamaño de la imagen */
-    height: 300px; /* Asegura que sea cuadrada para el círculo */
-    border-radius: 50%; /* Esto la hace circular */
-    object-fit: cover; /* Asegura que la imagen llene el círculo sin distorsionarse */
-    margin-bottom: 30px; /* Espacio debajo de la imagen */
-    border: 4px solid var(--primary-color); /* Borde sutil */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra elegante */
+    width: 300px; 
+    height: 300px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-bottom: 30px;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
 }
 
 #home-name {
@@ -147,6 +147,24 @@ a:hover {
     font-weight: 300;
     margin-top: 10px;
     letter-spacing: 1px;
+}
+
+#social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#social-icons a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#social-icons a:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
 }
 
 
@@ -183,7 +201,7 @@ a:hover {
 
 @media (max-width: 768px) {
     .card {
-        width: calc(100% - 40px);
+        width: calc(100% - 20px);
         display: block;
         text-align: left;
         padding: 20px;
@@ -409,8 +427,24 @@ a:hover {
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
+    .container {
+        padding: 40px 10px;
+    }
+    .home-content {
+        padding: 0 10px;
+    }
+    .profile-pic {
+        width: 250px;
+        height: 250px;
+    }
     #home-name {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+    #social-icons {
+        gap: 15px;
+    }
+    #social-icons a {
+        font-size: 1.2rem;
     }
     #navbar a {
         margin: 0 10px;
@@ -430,33 +464,37 @@ a:hover {
     .timeline-item::after {
         left: 10px;
     }
+    .grid {
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+    .project-card {
+        max-width: 100%;
+    }
+    .skills-list {
+        justify-content: center;
+    }
     
 }
 
-/* --- Estilos para Animaciones de Scroll --- */
-
-/* Estado inicial de los elementos que se animarán. Empiezan invisibles y ligeramente desplazados. */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Estado final cuando el elemento es visible. */
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 
-/* --- Estilo para el enlace activo en la barra de navegación --- */
 #navbar a.active {
-    color: var(--primary-color); /* Un color más destacado */
-    border-bottom-color: var(--primary-color); /* Mantiene la línea consistente con el hover */
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
 }
 
-/* --- Estilo para texto destacado --- */
 .highlight-text {
-    color: var(--primary-color); /* Usa el color dorado de acento que ya tienes */
-    font-weight: 600; /* Un poco más grueso que el texto normal, pero no totalmente en negrita */
+    color: var(--primary-color); 
+    font-weight: 600;
 }

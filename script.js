@@ -9,19 +9,22 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             populatePage(data);
-            
-            // NUEVO: Una vez que la página está poblada, inicializamos las animaciones
             setupScrollAnimations(); 
-            // NUEVO: Y también el scrollspy para el menú
             setupScrollspy(); 
         })
         .catch(error => console.error('Error fetching data:', error));
 
-    // Función para poblar la página con los datos (sin cambios)
     function populatePage(data) {
         document.title = `${data.personal.name} | Portfolio`;
         document.getElementById('home-name').textContent = data.personal.name;
         document.getElementById('home-title').textContent = data.personal.title;
+
+        const socialIcons = document.getElementById('social-icons');
+        socialIcons.innerHTML = `
+            <a href="mailto:${data.contact.email}" target="_blank"><i class="fas fa-envelope"></i></a>
+            <a href="${data.contact.github}" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="${data.contact.linkedin}" target="_blank"><i class="fab fa-linkedin"></i></a>
+        `;
 
         const navbar = document.getElementById('navbar');
         Object.keys(data.sections).forEach(key => {
@@ -98,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('footer-name').textContent = data.personal.name;
     }
 
-    // NUEVO: Lógica para las animaciones de scroll
     function setupScrollAnimations() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -107,34 +109,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, {
-            threshold: 0.1 // El elemento se revela cuando un 10% es visible
+            threshold: 0.1 // The element is revealed when 10% is visible
         });
 
-        // Seleccionamos todos los elementos que queremos animar
+        // Here I select all the elements I want to animate
         const elementsToReveal = document.querySelectorAll('.reveal');
         elementsToReveal.forEach(el => observer.observe(el));
     }
 
-    // NUEVO: Lógica para el menú inteligente (scrollspy)
     function setupScrollspy() {
         const sections = document.querySelectorAll('main section');
         const navLinks = document.querySelectorAll('#navbar a');
 
         window.onscroll = () => {
-            // Fade out del home content
+            // Fade out home content
             const homeContent = document.querySelector('.home-content');
             const scrollY = window.scrollY;
-            const fadeDistance = 500; // Distancia en px para completar el fade
+            const fadeDistance = 500; 
             const opacity = Math.max(0, 1 - (scrollY / fadeDistance));
-            const translateY = scrollY * 0.3; // Movimiento hacia abajo
+            const translateY = scrollY * 0.2; 
             homeContent.style.opacity = opacity;
             homeContent.style.transform = `translateY(${translateY}px)`;
 
-            // Scrollspy logic
+          
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 60) { // 60 es la altura del menú
+                if (pageYOffset >= sectionTop - 60) { // 60 is the offset for the navbar height
                     current = section.getAttribute('id');
                 }
             });
@@ -148,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Inicialización de Particles.js (sin cambios)
+    
     particlesJS("particles-js", {
         "particles": { "number": { "value": 40, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#555555" }, "shape": { "type": "circle" }, "opacity": { "value": 0.8, "random": false }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#555555", "opacity": 0.6, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out" } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } }, "retina_detect": true
     });
