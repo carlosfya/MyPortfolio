@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="project-tech">
                         ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
                     </div>
-                    <a href="${project.link}">View Project</a>
+                    <a href="${project.link}" class="button">View Project</a>
                 </div>`;
         });
 
@@ -105,11 +105,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('project-card')) {
+                        const projectCards = document.querySelectorAll('.project-card');
+                        const index = Array.from(projectCards).indexOf(entry.target);
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 300); // 300ms delay between each
+                    } else {
+                        entry.target.classList.add('visible');
+                    }
                 }
             });
         }, {
-            threshold: 0.1 // The element is revealed when 10% is visible
+            threshold: 0.45 // The element is revealed when 10% is visible
         });
 
         // Here I select all the elements I want to animate
