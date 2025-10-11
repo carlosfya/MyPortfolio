@@ -358,6 +358,60 @@ a:hover {
     align-self: center;
 }
 
+/* --- Project Detail Page Styles --- */
+#project-detail {
+    padding: 100px 20px 60px;
+}
+
+.project-description {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+.project-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-list {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.project-list li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.project-tech {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.project-tech span {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 /* --- Skills Section --- */
 #skills-content {
     max-width: 800px;
@@ -495,6 +549,19 @@ footer {
     .project-card {
         min-height: auto;
     }
+
+    /* --- PROJECT DETAIL: Mobile View --- */
+    #project-detail {
+        padding: 80px 15px 40px;
+    }
+
+    .project-description {
+        font-size: 1.1rem;
+    }
+
+    .project-image {
+        max-width: 100%;
+    }
 }
 
 /* Small devices (phones, 480px and down) */
@@ -519,5 +586,23 @@ footer {
 
     #social-icons a {
         font-size: 2rem;
+    }
+
+    /* --- PROJECT DETAIL: Small Phone View --- */
+    #project-detail {
+        padding: 60px 10px 30px;
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
+
+    .project-list {
+        padding-left: 15px;
+    }
+
+    .project-tech span {
+        font-size: 0.8rem;
+        padding: 4px 10px;
     }
 }

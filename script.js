@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, {
-            threshold: 0.45 // The element is revealed when 45% is visible
+            threshold: 0.35 // The element is revealed when 45% is visible
         });
 
         // Here I select all the elements I want to animate
