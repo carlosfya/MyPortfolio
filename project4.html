@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Trading System with Market Regime Detection - Carlos Fernández-Yáñez Arce</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <header id="header">
+        <nav id="navbar">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="project-detail" class="container">
+            <h2>Adaptive Trading System with Market Regime Detection — Bachelor Thesis (TFG)</h2>
+            <div>
+                <p class="project-description">Design, implementation and validation of an adaptive algorithmic trading system that automatically detects the prevailing market regime using two Hidden Markov Models acting as a dual orchestrator, and dynamically allocates capital across four specialized portfolio strategies. The system operates on a multi-asset universe of nine liquid ETFs (equities, treasuries, credit, gold, commodities), incorporates macro signals from the Federal Reserve (FRED) and implied volatility (VIX), and is evaluated on a strictly causal walk-forward backtest from 2012 to 2026 with realistic transaction costs.</p>
+            </div>
+
+            <img src="project4-image.svg" alt="Adaptive Trading System with Market Regime Detection" class="project-image">
+
+            <h3>How It Works</h3>
+            <div class="card">
+                <ul class="project-list">
+                    <li><strong>Dual-HMM Orchestrator:</strong> a Macro HMM (credit spread BAA10Y, yield-curve slope T10Y2Y) distinguishes Expansion vs. Contraction, while a Volatility HMM (VIX, realized volatilities, SPY–TLT correlation) distinguishes Low vs. High Risk. Their 2×2 intersection defines four regimes: Growth, Crash, and two Sideways states</li>
+                    <li><strong>Regime-Specialized Sleeves:</strong> each regime activates its own asset universe and optimization method — Max Sharpe (SLSQP, bounded) in Growth, Hierarchical Risk Parity in Crash, Risk Parity / ERC and Inverse Volatility in the Sideways regimes</li>
+                    <li><strong>MA200 Veto + Vol-Targeting Overlay:</strong> a trend-filter layer remaps weak Sideways days to the offensive sleeve, and a causal vol-targeting overlay caps strategy volatility at 10%, parking the remainder in short-term treasuries</li>
+                    <li><strong>Anti-Whipsaw Logic:</strong> monthly rebalancing, with early rebalancing only if a new regime persists 3 consecutive days — filtering spurious signals and reducing turnover</li>
+                </ul>
+            </div>
+
+            <h3>Rigorous, Causal Validation</h3>
+            <div class="card">
+                <ul class="project-list">
+                    <li><strong>Walk-Forward Training:</strong> expanding window with quarterly retraining (58 retrains), producing 3,625 consecutive out-of-sample days (2012–2026) with zero look-ahead by construction (global feature shift, train-only scaling, causal covariance estimation)</li>
+                    <li><strong>Economic Sanity Checks:</strong> the model flags the COVID-19 crash in real time (34.9% of days in Crash regime, 0% in Growth during Feb–May 2020) and classifies 2017 — the calmest market in recent history — as 100% Growth</li>
+                    <li><strong>Ablation Study:</strong> four full backtests quantify each signal's contribution — removing the credit spread collapses Sharpe from 0.765 to 0.136; removing the SPY–TLT correlation worsens max drawdown from −20.7% to −26.0% (a pure tail-protection signal)</li>
+                    <li><strong>Realistic Frictions:</strong> 10 bps transaction cost per unit of turnover, applied daily, with identically-costed benchmarks</li>
+                </ul>
+            </div>
+
+            <h3>Results (2012–2026, out-of-sample)</h3>
+            <div class="card">
+                <ul class="project-list">
+                    <li><strong>Final system:</strong> Sharpe <strong>0.875</strong> vs. 0.813 for SPY Buy &amp; Hold and 0.738 for the institutional 60/40 benchmark</li>
+                    <li><strong>Max drawdown −20.6%</strong> vs. −33.7% for SPY and −27.7% for 60/40 — with roughly half of SPY's volatility (8.1% vs. 16.6%)</li>
+                    <li>Consistent performance across subperiods (Sharpe ≈ 0.90 in both 2012–2018 and 2019–2026)</li>
+                    <li>Core finding: regime intelligence improves risk management without sacrificing risk-adjusted return — positive returns across all four regimes, including crashes</li>
+                </ul>
+            </div>
+
+            <h3>Technologies Used</h3>
+            <div class="card">
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>hmmlearn (HMM)</span>
+                    <span>SciPy (SLSQP)</span>
+                    <span>scikit-learn</span>
+                    <span>pandas / NumPy</span>
+                    <span>yfinance</span>
+                    <span>FRED (fredapi)</span>
+                    <span>Parquet (pyarrow)</span>
+                </div>
+            </div>
+
+            <a href="index.html#projects" class="button">Return to Projects</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Carlos Fernández-Yáñez Arce. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

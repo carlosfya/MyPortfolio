@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Montserrat, sans-serif">
+  <rect width="800" height="450" fill="#ffffff"/>
+  <!-- regime bands -->
+  <rect x="60" y="60" width="220" height="300" fill="#8c7851" opacity="0.13"/>
+  <rect x="280" y="60" width="140" height="300" fill="#b0413e" opacity="0.12"/>
+  <rect x="420" y="60" width="170" height="300" fill="#2c3e50" opacity="0.10"/>
+  <rect x="590" y="60" width="160" height="300" fill="#8c7851" opacity="0.13"/>
+  <!-- axes -->
+  <line x1="60" y1="360" x2="750" y2="360" stroke="#c9c2b4" stroke-width="2"/>
+  <line x1="60" y1="60" x2="60" y2="360" stroke="#c9c2b4" stroke-width="2"/>
+  <!-- price path -->
+  <path d="M60,310 L110,285 L160,290 L210,255 L280,235 L320,300 L380,330 L420,305 L470,300 L530,285 L590,290 L650,250 L700,230 L750,195"
+        fill="none" stroke="#8c7851" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- hidden-state markers -->
+  <g fill="#2c3e50">
+    <circle cx="160" cy="290" r="6"/>
+    <circle cx="380" cy="330" r="6"/>
+    <circle cx="530" cy="285" r="6"/>
+    <circle cx="700" cy="230" r="6"/>
+  </g>
+  <text x="60" y="415" fill="#2c3e50" font-size="26" font-weight="600">Dual-HMM Market Regime Detection</text>
+  <text x="66" y="86" fill="#8c7851" font-size="18">Growth</text>
+  <text x="286" y="86" fill="#b0413e" font-size="18">Crash</text>
+  <text x="426" y="86" fill="#2c3e50" font-size="18">Sideways</text>
+  <text x="596" y="86" fill="#8c7851" font-size="18">Growth</text>
+</svg>

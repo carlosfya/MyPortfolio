@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="timeline-content">
                         <h3>${item.role} at ${item.company}</h3>
                         <span class="period">${item.period}</span>
-                        <p>${item.description}</p>
+                        ${item.description ? `<p>${item.description}</p>` : ''}
+                        ${item.highlights ? `<ul class="experience-highlights">${item.highlights.map(h => `<li>${h}</li>`).join('')}</ul>` : ''}
                     </div>
                 </div>`;
         });

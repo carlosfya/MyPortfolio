@@ -1,7 +1,7 @@
 {
   "personal": {
     "name": "Carlos Fernández-Yáñez Arce",
-    "title": "Telecommunication Technologies & Data Science Engineering Student"
+    "title": "Data Analytics Intern @ Repsol | Telecommunication Technologies & Data Science Engineering Student"
   },
   "contact": {
     "email": "carlosfyam@gmail.com",
@@ -11,42 +11,42 @@
   },
   "sections": {
     "about": "About Me",
+    "experience": "Experience",
     "education": "Education",
     "projects": "Projects",
-    "experience": "Experience",
     "skills": "Skills",
     "contact": "Contact"
   },
   "about": {
-    "description": "Fervent advocate of technological innovation, constantly driven by the pursuit of knowledge and the opportunity to learn from the world around me. My passion for technology spans across various domains, with a particular focus on <span class='highlight-text'>artificial intelligence (AI)</span>, <span class='highlight-text'>telecommunications devices</span>, and <span class='highlight-text'>finance</span>. I am committed to expand my skill set and contribute to cutting-edge advancements in the field."
+    "description": "Last-year engineering student in Telecommunication Technologies and Data Science, currently working as a <span class='highlight-text'>Data Analytics intern at Repsol</span>. Experience in <span class='highlight-text'>AI applications</span>, churn and commercial analytics, embedded systems and <span class='highlight-text'>data visualization</span>. Strong interest in <span class='highlight-text'>finance</span> and innovation, eager to contribute to projects combining technology and business intelligence."
   },
   "education": [
+    {
+      "institution": "University Carlos III of Madrid",
+      "degree": "Dual Bachelor's Degree in Telecommunication Technologies & Data Science Engineering",
+      "period": "2021 – 2027",
+      "details": "GPA: 7.8/10"
+    },
     {
       "institution": "Northeastern University, Boston",
       "degree": "Exchange Year Program",
       "period": "2023 – 2024",
-      "details": "Achieved Dean’s List honors for academic excellence."
-    },
-    {
-      "institution": "University Charles III of Madrid",
-      "degree": "Dual Bachelor's Degree in Telecommunication Technologies & Data Science Engineering",
-      "period": "2021 - 2026",
-      "details": "GPA: 7.8/10"
+      "details": "Achieved Dean's List honors for academic excellence."
     },
     {
       "institution": "Santa María del Pilar High School",
-      "degree": "Primary School & High School",
-      "period": "2006 – 2021",
-      "details": "Graduated with honors registration."
+      "degree": "High School with honors (9.9/10)",
+      "period": "2019 – 2021",
+      "details": "EVAU: 13.056/14"
     }
   ],
   "projects": [
     {
-      "title": "Super Mario Bros Clone - Python Game",
-      "description": "Faithful recreation of Super Mario Bros in Python using Pyxel, featuring OOP, game physics, and collision detection.",
-      "technologies": ["Python", "Pyxel", "Object-Oriented Programming", "Game Physics", "Collision Detection"],
-      "image": "project1-image.jpg",
-      "link": "project1.html"
+      "title": "Adaptive Trading System with Market Regime Detection — Bachelor Thesis (TFG)",
+      "description": "Dual Hidden Markov Model orchestrator (macro + volatility) that detects 4 market regimes and dynamically allocates capital across specialized portfolio strategies over 9 ETFs. Validated with a strictly causal walk-forward backtest (2012–2026): Sharpe 0.875 vs 0.813 for SPY, with nearly half its max drawdown.",
+      "technologies": ["Python", "Hidden Markov Models", "hmmlearn", "Portfolio Optimization", "Walk-Forward Backtesting", "yfinance / FRED"],
+      "image": "project4-image.svg",
+      "link": "project4.html"
     },
     {
       "title": "Autonomous Vehicle Control System",
@@ -54,6 +54,13 @@
       "technologies": ["STM32L152RETX", "BLE", "Ultrasonic Sensors", "DC Motors", "C/C++", "Embedded Systems"],
       "image": "project2-image.jpg",
       "link": "project2.html"
+    },
+    {
+      "title": "Super Mario Bros Clone - Python Game",
+      "description": "Faithful recreation of Super Mario Bros in Python using Pyxel, featuring OOP, game physics, and collision detection.",
+      "technologies": ["Python", "Pyxel", "Object-Oriented Programming", "Game Physics", "Collision Detection"],
+      "image": "project1-image.jpg",
+      "link": "project1.html"
     },
     {
       "title": "Titanic Survival Analysis - R",
@@ -65,6 +72,18 @@
   ],
   "experience": [
     {
+      "company": "Repsol Energía (Viesgo Energía S.L.), Madrid",
+      "role": "Data Analytics Intern",
+      "period": "2026 - Present",
+      "description": "",
+      "highlights": [
+        "Churn analysis of the electricity retail portfolio by tenure, channel and agency (Excel, Power BI)",
+        "SAS (Enterprise Guide) data pipelines over Salesforce/DWH for Director-level reporting",
+        "Markov-chain model projecting 10-year portfolio runoff, with retention-campaign scenarios",
+        "Retention campaign impact measurement (target vs. control) and B2B segmentation of 3,400+ clients"
+      ]
+    },
+    {
       "company": "elLaurel Catering & Grupo Goa",
       "role": "Event Waiter & Team Coordinator",
       "period": "May 2024 - Sep 2024",
@@ -72,7 +91,18 @@
     }
   ],
   "skills": {
-    "technical": ["Coding", "Research & Data Analysis", "Excel", "Project Management", "Artificial Intelligence"],
-    "soft": ["Teamwork", "Leadership", "Communication", "Problem-Solving", "Adaptability", "Organizational Skills"]
+    "technical": [
+      "Programming — Python, R, SQL, SAS (Enterprise Guide)",
+      "Data & Analytics — Pandas, NumPy, scikit-learn, Power BI, Excel (advanced), data visualization",
+      "Engineering — MATLAB, LTSpice, STM32 / embedded C",
+      "Tools — Git, Jupyter, VS Code",
+      "Languages — Spanish (native), English (Cambridge C1 Proficiency), French (basic)"
+    ],
+    "soft": [
+      "Leadership & Team Collaboration — coordinating multidisciplinary teams toward shared goals",
+      "Project Management — task planning, prioritization and risk mitigation",
+      "Analytical Thinking — root-cause analysis and practical solutions under pressure",
+      "Communication & Adaptability — clear technical writing and presentations; quick learner, comfortable with shifting priorities"
+    ]
   }
 }

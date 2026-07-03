@@ -274,6 +274,19 @@ a:hover {
     margin-top: 10px;
 }
 
+.experience-highlights {
+    text-align: left;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.experience-highlights li {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 8px;
+}
+
 .timeline-content .period {
     font-size: 1rem;
     font-weight: 600;
