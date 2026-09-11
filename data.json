@@ -1,7 +1,7 @@
 {
   "personal": {
     "name": "Carlos Fernández-Yáñez Arce",
-    "title": "Data Analytics Intern @ Repsol | Telecommunication Technologies & Data Science Engineering Student"
+    "title": "Telecommunication Technologies & Data Science Engineering Student | Former Data Analytics Intern @ Repsol"
   },
   "contact": {
     "email": "carlosfyam@gmail.com",
@@ -18,7 +18,7 @@
     "contact": "Contact"
   },
   "about": {
-    "description": "Last-year engineering student in Telecommunication Technologies and Data Science, currently working as a <span class='highlight-text'>Data Analytics intern at Repsol</span>. Experience in <span class='highlight-text'>AI applications</span>, churn and commercial analytics, embedded systems and <span class='highlight-text'>data visualization</span>. Strong interest in <span class='highlight-text'>finance</span> and innovation, eager to contribute to projects combining technology and business intelligence."
+    "description": "Last-year engineering student in Telecommunication Technologies and Data Science, recently finished an internship as a <span class='highlight-text'>Data Analytics intern at Repsol</span> (March – August 2026). Experience in <span class='highlight-text'>AI applications</span>, churn and commercial analytics, embedded systems and <span class='highlight-text'>data visualization</span>. Strong interest in <span class='highlight-text'>finance</span> and innovation, eager to contribute to projects combining technology and business intelligence."
   },
   "education": [
     {
@@ -74,7 +74,7 @@
     {
       "company": "Repsol Energía (Viesgo Energía S.L.), Madrid",
       "role": "Data Analytics Intern",
-      "period": "2026 - Present",
+      "period": "March 2026 - August 2026",
       "description": "",
       "highlights": [
         "Churn analysis of the electricity retail portfolio by tenure, channel and agency (Excel, Power BI)",
