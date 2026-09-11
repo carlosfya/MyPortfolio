@@ -24,40 +24,41 @@
 
     <main>
         <section id="project-detail" class="container">
-            <h2>Adaptive Trading System with Market Regime Detection — Bachelor Thesis (TFG)</h2>
+            <h2>Adaptive Portfolio Guided by a Dual Hidden Markov Model — Bachelor Thesis (TFG)</h2>
             <div>
-                <p class="project-description">Design, implementation and validation of an adaptive algorithmic trading system that automatically detects the prevailing market regime using two Hidden Markov Models acting as a dual orchestrator, and dynamically allocates capital across four specialized portfolio strategies. The system operates on a multi-asset universe of nine liquid ETFs (equities, treasuries, credit, gold, commodities), incorporates macro signals from the Federal Reserve (FRED) and implied volatility (VIX), and is evaluated on a strictly causal walk-forward backtest from 2012 to 2026 with realistic transaction costs.</p>
+                <p class="project-description">Design, implementation and validation of a defensive, adaptive asset-allocation system built on two interpretable Hidden Markov Models: one tracking market volatility (calm vs. stress) and one tracking the macro cycle (expansion vs. contraction). Their intersection defines four regimes (Growth, Crash and two Sideways states), each mapped to its own basket of ETFs. Every month the portfolio is a <strong>causal soft blend</strong> of the four baskets, weighted by strictly filtered regime probabilities. Evaluated on a 7-ETF universe (SPY, QQQ, XLP, TLT, SHY, GLD, DBC) with a walk-forward backtest from April 2013 to July 2026, net of transaction costs.</p>
             </div>
 
-            <img src="project4-image.svg" alt="Adaptive Trading System with Market Regime Detection" class="project-image">
+            <img src="project4-image.svg" alt="Adaptive Portfolio Guided by a Dual Hidden Markov Model" class="project-image">
 
             <h3>How It Works</h3>
             <div class="card">
                 <ul class="project-list">
-                    <li><strong>Dual-HMM Orchestrator:</strong> a Macro HMM (credit spread BAA10Y, yield-curve slope T10Y2Y) distinguishes Expansion vs. Contraction, while a Volatility HMM (VIX, realized volatilities, SPY–TLT correlation) distinguishes Low vs. High Risk. Their 2×2 intersection defines four regimes: Growth, Crash, and two Sideways states</li>
-                    <li><strong>Regime-Specialized Sleeves:</strong> each regime activates its own asset universe and optimization method — Max Sharpe (SLSQP, bounded) in Growth, Hierarchical Risk Parity in Crash, Risk Parity / ERC and Inverse Volatility in the Sideways regimes</li>
-                    <li><strong>MA200 Veto + Vol-Targeting Overlay:</strong> a trend-filter layer remaps weak Sideways days to the offensive sleeve, and a causal vol-targeting overlay caps strategy volatility at 10%, parking the remainder in short-term treasuries</li>
-                    <li><strong>Anti-Whipsaw Logic:</strong> monthly rebalancing, with early rebalancing only if a new regime persists 3 consecutive days — filtering spurious signals and reducing turnover</li>
+                    <li><strong>Dual HMM (4 features only):</strong> a Volatility HMM on log(VIX) and 21-day realized SPY volatility, and a Macro HMM on z-scores of the yield-curve slope and the credit spread (FRED). Two 2-state models instead of one 4-state model: 3–4× more data per estimated parameter and unambiguous state identification</li>
+                    <li><strong>Regime → universe mapping:</strong> Growth (SPY, QQQ), Crash (TLT, SHY, GLD, XLP), Sideways_A (SPY, GLD, DBC), Sideways_B (XLP, GLD, SHY). Within each basket, capital is split by a single inverse-volatility rule — no optimizer, no tunable parameters</li>
+                    <li><strong>Causal soft blending:</strong> on the first trading day of each month the portfolio combines the four regime baskets weighted by filtered probabilities P(s<sub>t</sub> | x<sub>1:t</sub>) from the forward recursion — never Viterbi or smoothed probabilities, which would silently leak future information. Exposure shifts gradually as evidence accumulates, which removed the need for an anti-whipsaw filter</li>
+                    <li><strong>Reproducibility by design:</strong> a deterministic label-switching rule (states sorted by log-VIX / credit-spread z-score) and an ensemble of 10 EM initializations per window, which shrinks the seed-dependence of the Sharpe ratio from a 0.21 range to 0.04</li>
                 </ul>
             </div>
 
             <h3>Rigorous, Causal Validation</h3>
             <div class="card">
                 <ul class="project-list">
-                    <li><strong>Walk-Forward Training:</strong> expanding window with quarterly retraining (58 retrains), producing 3,625 consecutive out-of-sample days (2012–2026) with zero look-ahead by construction (global feature shift, train-only scaling, causal covariance estimation)</li>
-                    <li><strong>Economic Sanity Checks:</strong> the model flags the COVID-19 crash in real time (34.9% of days in Crash regime, 0% in Growth during Feb–May 2020) and classifies 2017 — the calmest market in recent history — as 100% Growth</li>
-                    <li><strong>Ablation Study:</strong> four full backtests quantify each signal's contribution — removing the credit spread collapses Sharpe from 0.765 to 0.136; removing the SPY–TLT correlation worsens max drawdown from −20.7% to −26.0% (a pure tail-protection signal)</li>
-                    <li><strong>Realistic Frictions:</strong> 10 bps transaction cost per unit of turnover, applied daily, with identically-costed benchmarks</li>
+                    <li><strong>Walk-forward:</strong> expanding window (minimum 5 years), models and scaler re-estimated every 21 trading days (~200 retrains), each block labelled by a model that has never seen it. Out-of-sample: April 2013 – July 2026, net of 10 bps per unit of turnover</li>
+                    <li><strong>Regimes mean something:</strong> the Crash regime covers 88% of the COVID crash, 82% of the 2022 bear market and 70% of late 2018; SPY volatility is 29% on Crash days vs. 11% in Growth. Transition matrices are strongly diagonal (0.95–0.99 daily persistence), so regimes last months, not days</li>
+                    <li><strong>Full ablation chain:</strong> signals (every extra feature — SPY–TLT correlation, VIX term structure — made results worse; removing macro z-scores doubled max drawdown), assets (no single ETF is indispensable), training window (expanding beats rolling 750–1,250 days), allocation engine (soft blend beats hard switching under all three weighting rules) and rebalancing day</li>
+                    <li><strong>Monte Carlo:</strong> 5,000 block-bootstrap histories — P(Sharpe &gt; 0) = 100%, 90% CI 0.76–1.67, beats 60/40 in 94% and SPY in 92% of them. Deflated Sharpe ratio (Bailey &amp; López de Prado) over all 56 configurations tested: the chance threshold is 0.23 and even the worst variant (0.72) clears it</li>
                 </ul>
             </div>
 
-            <h3>Results (2012–2026, out-of-sample)</h3>
+            <h3>Results (April 2013 – July 2026, out-of-sample, net of costs)</h3>
             <div class="card">
                 <ul class="project-list">
-                    <li><strong>Final system:</strong> Sharpe <strong>0.875</strong> vs. 0.813 for SPY Buy &amp; Hold and 0.738 for the institutional 60/40 benchmark</li>
-                    <li><strong>Max drawdown −20.6%</strong> vs. −33.7% for SPY and −27.7% for 60/40 — with roughly half of SPY's volatility (8.1% vs. 16.6%)</li>
-                    <li>Consistent performance across subperiods (Sharpe ≈ 0.90 in both 2012–2018 and 2019–2026)</li>
-                    <li>Core finding: regime intelligence improves risk management without sacrificing risk-adjusted return — positive returns across all four regimes, including crashes</li>
+                    <li><strong>Sharpe 1.20</strong> vs. 0.85 for the 60/40 SPY/TLT benchmark and 0.88 for SPY buy &amp; hold (excess-return Sharpe: 0.99 vs. 0.68 and 0.77 — the edge is not an artefact of high interest rates)</li>
+                    <li><strong>Max drawdown −11.9%</strong> vs. −27.7% for 60/40 and −33.7% for SPY, with half of SPY's volatility (8.5% vs. 16.9%); CAGR 10.4% vs. 8.9% for 60/40 — better on every metric at once</li>
+                    <li>Worst year −7% (2022, when 60/40 lost 23%), while keeping most good years (+23% in 2017, +25% in 2021, +21% in 2023 and 2024) and never going to cash</li>
+                    <li>Same 7 ETFs with static inverse-volatility and no regime information: excess Sharpe 0.50 — half of the system's. The advantage survives up to ~70 bps of costs, 7× the base assumption</li>
+                    <li>Honest weak spot: a macro false alarm in 2025–2026 kept the portfolio ultra-defensive while equities rallied (+0.4% vs. +17.7% for SPY in 2025) — the structural price of a defensive strategy, included in every figure above</li>
                 </ul>
             </div>
 
@@ -66,13 +67,20 @@
                 <div class="project-tech">
                     <span>Python</span>
                     <span>hmmlearn (HMM)</span>
-                    <span>SciPy (SLSQP)</span>
-                    <span>scikit-learn</span>
                     <span>pandas / NumPy</span>
+                    <span>scikit-learn</span>
+                    <span>SciPy</span>
                     <span>yfinance</span>
-                    <span>FRED (fredapi)</span>
+                    <span>FRED</span>
                     <span>Parquet (pyarrow)</span>
+                    <span>matplotlib</span>
+                    <span>LaTeX</span>
                 </div>
+            </div>
+
+            <h3>Link to the Repository</h3>
+            <div>
+                <a href="https://github.com/carlosfya/Adaptive-Portfolio-HMM" target="_blank" class="button"><i class="fab fa-github"></i> View on GitHub</a>
             </div>
 
             <a href="index.html#projects" class="button">Return to Projects</a>

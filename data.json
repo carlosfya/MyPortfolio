@@ -42,9 +42,9 @@
   ],
   "projects": [
     {
-      "title": "Adaptive Trading System with Market Regime Detection — Bachelor Thesis (TFG)",
-      "description": "Dual Hidden Markov Model orchestrator (macro + volatility) that detects 4 market regimes and dynamically allocates capital across specialized portfolio strategies over 9 ETFs. Validated with a strictly causal walk-forward backtest (2012–2026): Sharpe 0.875 vs 0.813 for SPY, with nearly half its max drawdown.",
-      "technologies": ["Python", "Hidden Markov Models", "hmmlearn", "Portfolio Optimization", "Walk-Forward Backtesting", "yfinance / FRED"],
+      "title": "Adaptive Portfolio Guided by a Dual Hidden Markov Model — Bachelor Thesis (TFG)",
+      "description": "Defensive asset-allocation system built on two interpretable HMMs (volatility + macro) that define 4 market regimes. A causal soft blend of regime-specific ETF baskets, weighted by filtered probabilities. Walk-forward validation (2013–2026), net of costs: Sharpe 1.20 vs 0.85 for the 60/40 benchmark, max drawdown −11.9% vs −33.7% for SPY. Robustness confirmed via ablations, seed stability, block bootstrap and deflated Sharpe.",
+      "technologies": ["Python", "Hidden Markov Models", "hmmlearn", "Portfolio Allocation", "Walk-Forward Backtesting", "Monte Carlo", "yfinance / FRED"],
       "image": "project4-image.svg",
       "link": "project4.html"
     },
