@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Dashboard - Carlos Fernández-Yáñez Arce</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Page-specific styles for the Finance Dashboard project */
+        .fd-lead { max-width: 780px; margin: 0 auto 30px; font-size: 1.05rem; }
+        .fd-hero { width: 100%; border-radius: 12px; box-shadow: 0 18px 40px rgba(0,0,0,.25); margin: 10px 0 40px; cursor: zoom-in; }
+        .fd-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 0 0 50px; }
+        .fd-stat { background: var(--card-bg-color); border: 1px solid var(--border-color); border-radius: 10px; padding: 18px 10px; }
+        .fd-stat i { color: var(--primary-color); font-size: 1.4rem; }
+        .fd-stat strong { display: block; font-family: var(--header-font); font-size: 1.7rem; margin-top: 6px; }
+        .fd-stat span { font-size: .85rem; opacity: .75; }
+        .fd-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; text-align: left; margin-bottom: 50px; }
+        .fd-feature { background: var(--card-bg-color); border: 1px solid var(--border-color); border-radius: 10px; padding: 22px; transition: transform .25s, box-shadow .25s; }
+        .fd-feature:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,.08); }
+        .fd-feature h4 { margin: 0 0 8px; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; }
+        .fd-feature h4 i { width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(140,120,81,.12); color: var(--primary-color); flex-shrink: 0; }
+        .fd-feature p { margin: 0; font-size: .93rem; }
+        .fd-shot { margin: 0 0 46px; text-align: left; }
+        .fd-shot img { width: 100%; border-radius: 10px; border: 1px solid var(--border-color); box-shadow: 0 10px 28px rgba(0,0,0,.18); cursor: zoom-in; display: block; }
+        .fd-shot figcaption { margin-top: 12px; font-size: .93rem; }
+        .fd-shot figcaption strong { color: var(--primary-color); }
+        .fd-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .fd-pair .fd-shot { margin-bottom: 30px; }
+        .fd-flow { display: flex; align-items: stretch; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+        .fd-node { background: var(--card-bg-color); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; width: 190px; font-size: .85rem; }
+        .fd-node i { color: var(--primary-color); font-size: 1.3rem; display: block; margin-bottom: 6px; }
+        .fd-arrow { align-self: center; color: var(--primary-color); font-size: 1.2rem; }
+        .fd-note { font-size: .85rem; opacity: .75; margin-top: 8px; }
+        #fd-lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.88); display: none; align-items: center; justify-content: center; z-index: 1000; cursor: zoom-out; padding: 20px; }
+        #fd-lightbox img { max-width: 100%; max-height: 92vh; border-radius: 8px; }
+        @media (max-width: 760px) {
+            .fd-stats { grid-template-columns: repeat(2, 1fr); }
+            .fd-grid, .fd-pair { grid-template-columns: 1fr; }
+            .fd-arrow { transform: rotate(90deg); width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <header id="header">
+        <nav id="navbar">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="project-detail" class="container">
+            <h2>Personal Finance Dashboard</h2>
+            <p class="fd-lead">A full-stack personal finance platform that brings <strong>investments, bank accounts and net worth</strong> into a single interactive web app. It automatically ingests data from banks (PSD2 Open Banking), brokers, crypto exchanges and broker e-mails, prices every asset daily and turns it all into analytics: performance, risk, spending, cash-flow and a 3D quantitative lab. Built solo on <strong>Google Apps Script + Google Sheets</strong>, with a CI/CD pipeline and a headless-browser test suite.</p>
+
+            <img src="project5/finanzas-resumen.jpg" alt="Finance Dashboard overview" class="fd-hero fd-zoom">
+
+            <div class="fd-stats">
+                <div class="fd-stat"><i class="fas fa-layer-group"></i><strong>5</strong><span>main modules</span></div>
+                <div class="fd-stat"><i class="fas fa-plug"></i><strong>8+</strong><span>data sources connected</span></div>
+                <div class="fd-stat"><i class="fas fa-vial"></i><strong>60+</strong><span>automated test suites</span></div>
+                <div class="fd-stat"><i class="fas fa-rocket"></i><strong>CI/CD</strong><span>auto-deploy on merge</span></div>
+            </div>
+
+            <h3>What It Does</h3>
+            <div class="fd-grid">
+                <div class="fd-feature"><h4><i class="fas fa-chart-line"></i>Investment analytics</h4><p>Daily portfolio valuation, time-weighted return vs. money-weighted "your money" return, IRR, Sharpe/Sortino, drawdown, VaR, benchmark vs. S&amp;P 500 and a look-through of every fund by country, sector and company (Morningstar API).</p></div>
+                <div class="fd-feature"><h4><i class="fas fa-building-columns"></i>Bank accounts &amp; spending</h4><p>Bank transactions imported via Enable Banking (PSD2) or any CSV/Excel statement, auto-classified into income, expenses and transfers with a confidence score and a review queue.</p></div>
+                <div class="fd-feature"><h4><i class="fas fa-wallet"></i>Net worth</h4><p>Combines liquidity and investments day by day, splits each change into <em>savings / contributions / market</em>, and visualises money flows with an interactive Sankey diagram.</p></div>
+                <div class="fd-feature"><h4><i class="fas fa-scale-balanced"></i>Rebalancing planner</h4><p>Compares the real allocation with target bands and proposes concrete steps — redirect contributions first, tax-free fund transfers next, sales only if needed — with the tax impact.</p></div>
+                <div class="fd-feature"><h4><i class="fas fa-cube"></i>3D quant lab (Three.js)</h4><p>Live implied-volatility surfaces from Deribit, the US Treasury yield curve, market-regime clustering (PCA + k-means) and a block-bootstrap Monte Carlo of the user's own portfolio.</p></div>
+                <div class="fd-feature"><h4><i class="fas fa-microphone"></i>Voice assistant (LLM tools)</h4><p>Ask "how did my BTC do in 2025?" and it navigates, filters the screen and answers with real figures, using typed function-calling with Gemini plus a fast classifier racing in parallel.</p></div>
+            </div>
+
+            <h3>Architecture</h3>
+            <div class="fd-flow">
+                <div class="fd-node"><i class="fas fa-download"></i><strong>Ingestion</strong><br>Open Banking (PSD2), SnapTrade, Bitvavo, CoinStats, Gmail parsers, CSV/Excel importer</div>
+                <div class="fd-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="fd-node"><i class="fas fa-database"></i><strong>Storage &amp; logic</strong><br>Google Sheets + Apps Script backend, hash-based dedupe, canonical event model, caching</div>
+                <div class="fd-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="fd-node"><i class="fas fa-coins"></i><strong>Pricing</strong><br>Yahoo Finance, Morningstar, Deribit, US Treasury — daily snapshots</div>
+                <div class="fd-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="fd-node"><i class="fas fa-display"></i><strong>Web app</strong><br>Single-page app with Chart.js, D3, Three.js and WebGL shaders</div>
+            </div>
+            <p class="fd-note">Credentials never reach the browser, and each user's data stays in their own Google Drive.</p>
+
+            <h3 style="margin-top:50px">Screenshots</h3>
+            <p class="fd-note" style="margin-bottom:30px">Shown with generated demo data. Click any image to enlarge.</p>
+
+            <figure class="fd-shot">
+                <img src="project5/finanzas-rendimiento.jpg" alt="Performance tab" class="fd-zoom">
+                <figcaption><strong><i class="fas fa-chart-line"></i> Performance.</strong> Per-asset returns with sparklines, IRR, time-weighted return and the "timing effect" of when money was contributed.</figcaption>
+            </figure>
+
+            <figure class="fd-shot">
+                <img src="project5/patrimonio-resumen.jpg" alt="Net worth overview" class="fd-zoom">
+                <figcaption><strong><i class="fas fa-wallet"></i> Net worth.</strong> Total wealth, where each change comes from (savings vs. contributions vs. market), allocation by type/account/country/sector and financial-health gauges.</figcaption>
+            </figure>
+
+            <figure class="fd-shot">
+                <img src="project5/patrimonio-flujo.jpg" alt="Sankey cash flow" class="fd-zoom">
+                <figcaption><strong><i class="fas fa-diagram-project"></i> Cash-flow Sankey.</strong> Where income goes — spending categories, money sent to brokers and what stays in the account — with savings rate and period-over-period comparison.</figcaption>
+            </figure>
+
+            <div class="fd-pair">
+                <figure class="fd-shot">
+                    <img src="project5/cuentas-resumen.jpg" alt="Accounts overview" class="fd-zoom">
+                    <figcaption><strong><i class="fas fa-building-columns"></i> Accounts.</strong> Income, spending and transfers across all connected banks.</figcaption>
+                </figure>
+                <figure class="fd-shot">
+                    <img src="project5/cuentas-evolucion.jpg" alt="Spending evolution" class="fd-zoom">
+                    <figcaption><strong><i class="fas fa-calendar-days"></i> Spending calendar.</strong> Day-by-day spending heatmap with month, year and 3D skyline views.</figcaption>
+                </figure>
+            </div>
+
+            <div class="fd-pair">
+                <figure class="fd-shot">
+                    <img src="project5/pro-volatilidad.jpg" alt="Implied volatility surface" class="fd-zoom">
+                    <figcaption><strong><i class="fas fa-cube"></i> Volatility surface.</strong> Live crypto option data from Deribit as a 3D surface, with movable slicing planes explained in plain language.</figcaption>
+                </figure>
+                <figure class="fd-shot">
+                    <img src="project5/pro-montecarlo.jpg" alt="Monte Carlo simulation" class="fd-zoom">
+                    <figcaption><strong><i class="fas fa-dice"></i> Monte Carlo.</strong> 2,000 futures of the real portfolio via block bootstrap of historical monthly returns.</figcaption>
+                </figure>
+            </div>
+
+            <figure class="fd-shot">
+                <img src="project5/pro-videowall.jpg" alt="3D trading floor" class="fd-zoom">
+                <figcaption><strong><i class="fas fa-tv"></i> 3D trading floor.</strong> A navigable quant-fund office whose videowall shows a real-time market summary (indices, crypto, gold, rates, VIX).</figcaption>
+            </figure>
+
+            <h3>Engineering Highlights</h3>
+            <div class="card">
+                <ul class="project-list">
+                    <li><strong>Financial correctness first:</strong> every calculation (returns, transfers, cost basis, anchored balances) is validated by Node tests that run the real backend functions against representative data, with explicit invariants — e.g. the gain KPI must equal the sum of the per-asset bars</li>
+                    <li><strong>Visual regression in CI:</strong> a local renderer reproduces Apps Script's templating, and Playwright/Chromium captures every view, audits the DOM for NaN values, overflow and WCAG contrast issues</li>
+                    <li><strong>Robust ingestion:</strong> a format-agnostic statement importer detects columns, number and date formats by voting, uses the running balance as a consistency check and deduplicates against all other sources</li>
+                    <li><strong>Automated deployment:</strong> GitHub Actions validates and pushes the code to Google Apps Script on every merge, with secrets kept out of the repository</li>
+                    <li><strong>Polished UX:</strong> light/dark themes, mobile layout, privacy mode that blurs amounts, animated transitions and an interactive time slider shared across tabs</li>
+                </ul>
+            </div>
+
+            <h3>Technologies Used</h3>
+            <div class="card">
+                <div class="project-tech">
+                    <span>Google Apps Script</span>
+                    <span>JavaScript</span>
+                    <span>Google Sheets</span>
+                    <span>HTML / CSS</span>
+                    <span>Chart.js</span>
+                    <span>D3.js</span>
+                    <span>Three.js / WebGL</span>
+                    <span>REST APIs</span>
+                    <span>Open Banking (PSD2)</span>
+                    <span>Gemini API</span>
+                    <span>Node.js</span>
+                    <span>Playwright</span>
+                    <span>GitHub Actions</span>
+                    <span>clasp</span>
+                </div>
+            </div>
+
+            <h3>Repository</h3>
+            <p class="fd-note"><i class="fas fa-lock"></i> The source code is kept in a private repository because it is connected to real financial accounts. A walkthrough is available on request.</p>
+
+            <a href="index.html#projects" class="button">Return to Projects</a>
+        </section>
+    </main>
+
+    <div id="fd-lightbox"><img alt=""></div>
+
+    <footer>
+        <p>&copy; 2026 Carlos Fernández-Yáñez Arce. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        (function () {
+            var box = document.getElementById('fd-lightbox');
+            var big = box.querySelector('img');
+            document.querySelectorAll('.fd-zoom').forEach(function (img) {
+                img.addEventListener('click', function () { big.src = img.src; big.alt = img.alt; box.style.display = 'flex'; });
+            });
+            box.addEventListener('click', function () { box.style.display = 'none'; });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') box.style.display = 'none'; });
+        })();
+    </script>
+</body>
+</html>

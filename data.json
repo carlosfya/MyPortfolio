@@ -49,6 +49,13 @@
       "link": "project4.html"
     },
     {
+      "title": "Personal Finance Dashboard — Full-Stack Web App",
+      "description": "Personal finance platform unifying investments, bank accounts and net worth. Automatic ingestion from Open Banking (PSD2), brokers, crypto exchanges and e-mail; performance, risk and spending analytics; cash-flow Sankey, 3D quant lab and an LLM voice assistant. Tested with headless-browser CI and auto-deployed via GitHub Actions.",
+      "technologies": ["Google Apps Script", "JavaScript", "Chart.js / D3", "Three.js", "Open Banking APIs", "Gemini API", "Playwright", "GitHub Actions"],
+      "image": "project5-image.jpg",
+      "link": "project5.html"
+    },
+    {
       "title": "Autonomous Vehicle Control System",
       "description": "Autonomous vehicle control system with STM32 microcontroller, BLE remote control, and obstacle detection.",
       "technologies": ["STM32L152RETX", "BLE", "Ultrasonic Sensors", "DC Motors", "C/C++", "Embedded Systems"],
